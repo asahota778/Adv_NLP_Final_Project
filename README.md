@@ -58,7 +58,7 @@ Patent offices worldwide face the challenge of manually classifying thousands of
 
 **Key Results**: 
 We trained a SetFit Model on 32 labeled abstracts achieving a macro-f1 score of aorund 0.3.
-We the explored generating pseudo-labeled data and generating synthetic data with an LLM which improved performance by a bit.
+We then explored generating pseudo-labeled data and generating synthetic data with an LLM which improved performance by a bit.
 The SetFit model was outperformed by Zero-Shot Classification using an LLM achieving a f1-score of 0.42.
 
 
