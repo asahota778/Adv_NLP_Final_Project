@@ -13,8 +13,8 @@ Submitted by:
 
 Submitted to: **Arnault Gombert** (<arnault.gombert@bse.eu>)
 
-### Note - Please download the repository and open the noteboosks in Jupyter Notbeook or a compatible IDE like VS Code to view code and outputs. Execution is computationally intensive, so upload them on Kaggle or Colab to use GPUs.
-### HuggingFace_Patent_Data_Extraction_v1.py is just the data extraction code for reference. Please use patent_corpus.csv to execute the codes
+##### Note - Please download the repository and open the noteboosks in Jupyter Notbeook or a compatible IDE like VS Code to view code and outputs. Execution is computationally intensive, so upload them on Kaggle or Colab to use GPUs.
+##### HuggingFace_Patent_Data_Extraction_v1.py is just the data extraction code for reference. Please use patent_corpus.csv to execute the codes
 ---
 
 ## Main Task and Objective
