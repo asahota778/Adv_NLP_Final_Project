@@ -51,3 +51,38 @@ Patent offices worldwide face the challenge of manually classifying thousands of
 - **TF-IDF + Logistic Regression**: Statistical baseline achieves **58.16% accuracy** and **52.12% macro F1**
 
 **Key Finding**: The task is moderately challenging with clear technical distinctions between classes, but minority classes pose significant challenges.
+
+
+### Part 3: Learning Curves and Technique Comparison
+
+This part of the project focuses on analyzing the model's learning behavior and comparing different training strategies to understand their effectiveness, especially in data-scarce scenarios.
+
+#### Learning Curve Analysis
+
+* **Objective**: To understand how the model's performance improves as the amount of training data increases.
+* **Summary**: Using the best hyperparameters found previously, a learning curve analysis is conducted. The model is trained on progressively larger subsets of the data (from 1% to 100%). The results are plotted to visualize how accuracy and F1-score scale with training set size, helping to diagnose whether the model suffers from high bias (underfitting) or high variance (overfitting).
+
+#### Technique Comparison
+
+* **Objective**: To compare the effectiveness of different training strategies, especially in low-resource scenarios.
+* **Summary**: This experiment compares three distinct training techniques:
+   1. **Few-shot Learning**: Training a model on a minimal, balanced dataset of just 32 samples.
+   2. **Pseudo-labeling**: Using the few-shot model to generate labels for a larger, unlabeled dataset and then retraining on the combined data.
+   3. **Standard Supervised Training**: Training a model on a larger, fully labeled dataset to serve as a baseline for comparison.
+
+### Part 4: Model Optimization and Performance Comparison
+
+This part focuses on creating a more efficient version of the best-performing model and conducting a detailed comparison of its performance, speed, and size against the original.
+
+#### Model Distillation & Quantization
+
+* **Objective**: To create a smaller, faster version of the best model while minimizing the impact on performance.
+* **Summary**: The best-performing `SetFit` model is designated as the "teacher" to train a smaller `DistilBERT` "student" model through **knowledge distillation**. This process transfers the teacher's learned knowledge to the more compact student architecture. The student model is then further compressed using **quantization**, which reduces its memory footprint and can accelerate inference.
+
+#### Performance and Speed Comparison
+
+* **Objective**: To quantify the trade-offs between the original model and the optimized student model.
+* **Key Results**:
+   * The distilled student model is **2.0x faster** during inference and **39% smaller** in size (255.4 MB vs. the teacher's 417.7 MB).
+   * This efficiency gain comes at a cost to performance, with the student's accuracy dropping by 10 percentage points from 61.0% to 51.0%.
+* **Key Finding**: Knowledge distillation successfully produces a significantly more efficient model suitable for production environments, but it highlights the classic trade-off between computational cost and predictive accuracy.
